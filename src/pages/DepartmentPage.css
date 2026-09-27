@@ -392,8 +392,8 @@
 }
 
 .member-image {
-  width: 700px;
-  height: 860px;
+  width: 100%;
+  aspect-ratio: 700 / 860;
   overflow: hidden;
   background: #020711;
   margin-bottom: 16px;
@@ -431,16 +431,26 @@
 
 .member-socials {
   display: flex;
+  flex-shrink: 0;
   gap: 8px;
 }
 
 .member-socials a {
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.3s ease;
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 198, 255, 0.12);
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .member-socials a:hover {
   color: #00c6ff;
+  border-color: #00c6ff;
+  background: rgba(0, 198, 255, 0.2);
 }
 
 /* =========================================================
@@ -518,6 +528,10 @@
 ========================================================= */
 
 @media (max-width: 960px) {
+  .department-page {
+    zoom: 1;
+  }
+
   .department-lead-section {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -526,9 +540,57 @@
   .department-members-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .department-member-card {
+    padding: 12px;
+  }
+
+  .member-info span {
+    font-size: 16px;
+  }
+
+  .member-info h3 {
+    font-size: clamp(22px, 3vw, 32px);
+  }
 }
 
 @media (max-width: 600px) {
+  .department-page {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .department-page-hero {
+    padding-top: 60px;
+    padding-bottom: 36px;
+  }
+
+  .department-page-hero h1 {
+    font-size: clamp(32px, 11vw, 52px);
+  }
+
+  .back-to-team {
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .members-heading {
+    margin-bottom: 32px;
+  }
+
+  .members-heading h2 {
+    font-size: clamp(32px, 10vw, 46px);
+  }
+
+  .members-count strong {
+    font-size: 56px;
+  }
+
+  .members-count span {
+    font-size: 16px;
+  }
+
   .department-members-grid {
     grid-template-columns: 1fr;
   }
@@ -541,5 +603,28 @@
 
   .members-count {
     align-items: flex-start;
+  }
+
+  .member-info {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .member-info span {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  .member-info h3 {
+    font-size: clamp(24px, 8vw, 34px);
+  }
+
+  .member-socials {
+    gap: 6px;
+  }
+
+  .member-socials a {
+    width: 34px;
+    height: 34px;
   }
 }
