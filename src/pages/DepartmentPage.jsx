@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 import BinaryBackground from "../components/BinaryBackground";
 import DepartmentLeadCard from "../components/DepartmentLeadCard";
@@ -325,7 +326,8 @@ export default function DepartmentPage() {
                   {/* Social links */}
 
                   {(member.github ||
-                    member.linkedin) && (
+                    member.linkedin ||
+                    member.instagram) && (
                     <div className="member-socials">
 
                       {member.github && (
@@ -335,9 +337,7 @@ export default function DepartmentPage() {
                           rel="noopener noreferrer"
                           aria-label={`${member.name} GitHub`}
                         >
-                          <ArrowUpRight
-                            size={15}
-                          />
+                          <FaGithub size={15} />
                         </a>
                       )}
 
@@ -348,9 +348,18 @@ export default function DepartmentPage() {
                           rel="noopener noreferrer"
                           aria-label={`${member.name} LinkedIn`}
                         >
-                          <ArrowUpRight
-                            size={15}
-                          />
+                          <FaLinkedin size={15} />
+                        </a>
+                      )}
+
+                      {member.instagram && (
+                        <a
+                          href={member.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} Instagram`}
+                        >
+                          <FaInstagram size={15} />
                         </a>
                       )}
 
